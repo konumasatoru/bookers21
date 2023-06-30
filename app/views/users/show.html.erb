@@ -2,6 +2,9 @@
 <div>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image, size:'100x100' %>
+  <% if @user == current_user %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
 </div>
 
 <!-- ユーザーの投稿一覧 -->
@@ -14,5 +17,6 @@
   <p>タイトル：<%= book.title %></p>
   <p>説明：<%= book.body %></p>
   <p>ユーザーネーム：<%= book.user.name %></p>
+  <p><%= link_to "#{book.post_comments.count} コメント", book_path(book.id) %></p>
 </div>
 <% end %>
