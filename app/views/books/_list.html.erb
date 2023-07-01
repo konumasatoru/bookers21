@@ -1,0 +1,12 @@
+<% books.each do |book| %>
+<!-- @post_images → post_images -->
+<div>
+  <p>投稿ユーザー画像：<%= link_to book_path(book.id) do %>
+  <%= image_tag book.user.get_profile_image, size:'100x100' %>
+  <% end %></p>
+  <p>タイトル：<%= book.title %></p>
+  <p>説明：<%= book.body %></p>
+  <p>ユーザーネーム：<%= book.user.name %></p>
+  <p><%= link_to "#{book.post_comments.count} コメント", book_path(book.id) %></p>
+</div>
+<% end %>
