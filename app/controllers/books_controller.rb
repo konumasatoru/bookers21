@@ -16,6 +16,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.page(params[:page])
+    @book = Book.new
   end
 
   def show
